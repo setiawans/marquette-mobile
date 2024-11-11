@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:marquette/widgets/left_drawer.dart';
+import 'package:marquette/widgets/product_card.dart';
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306152260';
@@ -7,7 +9,7 @@ class MyHomePage extends StatelessWidget {
 
   final List<ItemHomepage> items = [
     ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart, Colors.blue),
-    ItemHomepage("Tambah Produk", Icons.add, Colors.green),
+    ItemHomepage("Tambah Item", Icons.add, Colors.green),
     ItemHomepage("Logout", Icons.logout, Colors.red),
   ];
 
@@ -24,8 +26,10 @@ class MyHomePage extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        iconTheme: const IconThemeData(color: Colors.white),
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
+      drawer: const LeftDrawer(),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -39,12 +43,9 @@ class MyHomePage extends StatelessWidget {
                 InfoCard(title: 'Class', content: className),
               ],
             ),
-
             const SizedBox(height: 16.0),
-
             Center(
               child: Column(
-
                 children: [
                   const Padding(
                     padding: EdgeInsets.only(top: 16.0),
@@ -56,7 +57,6 @@ class MyHomePage extends StatelessWidget {
                       ),
                     ),
                   ),
-
                   GridView.count(
                     primary: true,
                     padding: const EdgeInsets.all(20),
@@ -64,7 +64,6 @@ class MyHomePage extends StatelessWidget {
                     mainAxisSpacing: 10,
                     crossAxisCount: 3,
                     shrinkWrap: true,
-
                     children: items.map((ItemHomepage item) {
                       return ItemCard(item);
                     }).toList(),
@@ -107,53 +106,3 @@ class InfoCard extends StatelessWidget {
   }
 }
 
-class ItemHomepage {
-  final String name;
-  final IconData icon;
-  final Color color;
-
-  ItemHomepage(this.name, this.icon, this.color);
-}
-
-class ItemCard extends StatelessWidget {
-  final ItemHomepage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color,
-      borderRadius: BorderRadius.circular(12),
-      child: InkWell(
-        onTap: () {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}

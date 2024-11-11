@@ -9,6 +9,13 @@ Marquette-mobile merupakan proyek Flutter untuk tugas mata kuliah Pemrograman Be
   - [Apa saja _widget_ yang digunakan pada proyek ini?](#sebutkan-widget-apa-saja-yang-kamu-gunakan-pada-proyek-ini-dan-jelaskan-fungsinya)
   - [Apa fungsi dari `setState()`?](#apa-fungsi-dari-setstate-jelaskan-variabel-apa-saja-yang-dapat-terdampak-dengan-fungsi-tersebut)
   - [Apa perbedaan antara `const` dan `final`](#jelaskan-perbedaan-antara-const-dengan-final)
+- [README.md Tugas 8](#tugas-8)
+  - [Implementasi CheckList Tugas 8](#implementasi-checklist-tugas-8)
+  - [Apa kegunaan `const` di Flutter?](#apa-kegunaan-const-di-flutter-jelaskan-apa-keuntungan-ketika-menggunakan-const-pada-kode-flutter-kapan-sebaiknya-kita-menggunakan-const-dan-kapan-sebaiknya-tidak-digunakan)
+  - [Jelaskan penggunaan _Column_ dan _Row_ pada Flutter.](#jelaskan-dan-bandingkan-penggunaan-column-dan-row-pada-flutter-berikan-contoh-implementasi-dari-masing-masing-layout-widget-ini)
+  - [Sebutkan apa saja elemen input yang digunakan pada halaman _form_.](#sebutkan-apa-saja-elemen-input-yang-kamu-gunakan-pada-halaman-form-yang-kamu-buat-pada-tugas-kali-ini-apakah-terdapat-elemen-input-flutter-lain-yang-tidak-kamu-gunakan-pada-tugas-ini-jelaskan)
+  - [Bagaimana cara kamu mengatur tema dalam aplikasi Flutter agar konsisten?](#bagaimana-cara-kamu-mengatur-tema-theme-dalam-aplikasi-flutter-agar-aplikasi-yang-dibuat-konsisten-apakah-kamu-mengimplementasikan-tema-pada-aplikasi-yang-kamu-buat)
+  - [Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?](#bagaimana-cara-kamu-menangani-navigasi-dalam-aplikasi-dengan-banyak-halaman-pada-flutter)
 
 ## Tugas 7
 
@@ -177,3 +184,17 @@ Penggunaan `setState()` sendiri memengaruhi variabel-variabel yang terdapat dala
 
 ## Jelaskan perbedaan antara const dengan final.
 Secara umum, perbedaannya dapat dilihat dari fleksibilitas data di dalamnya. `const` digunakan ketika nilai dari variabel kita ketahui saat _compile time_ dan tidak ingin diubah. Dengan demikian, `const` cocok untuk variabel-variabel statis yang tidak berinteraksi dengan pengguna. Sedangkan, `final` digunakan untuk nilai yang diketahui saat _runtime_ berlangsung. Dengan demikian, nilai dari variabel dapat ditentukan saat aplikasi berjalan. `final` sering digunakan untuk nilai statis/tetap yang diperoleh dari input pengguna.
+
+## Tugas 8
+
+## Implementasi Checklist Tugas 8
+
+## Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+
+## Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
+
+## Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+
+## Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
+
+## Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?

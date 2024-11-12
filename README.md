@@ -7,11 +7,10 @@ Marquette-mobile merupakan proyek Flutter untuk tugas mata kuliah Pemrograman Be
   - [Implementasi Checklist Tugas 7](#implementasi-checklist-tugas-7)
   - [Apa itu _stateless widget_ dan _stateful widget_?](#jelaskan-apa-yang-dimaksud-dengan-stateless-widget-dan-stateful-widget-dan-jelaskan-perbedaan-dari-keduanya)
   - [Apa saja _widget_ yang digunakan pada proyek ini?](#sebutkan-widget-apa-saja-yang-kamu-gunakan-pada-proyek-ini-dan-jelaskan-fungsinya)
-  - [Apa fungsi dari `setState()`?](#apa-fungsi-dari-setstate-jelaskan-variabel-apa-saja-yang-dapat-terdampak-dengan-fungsi-tersebut)
-  - [Apa perbedaan antara `const` dan `final`](#jelaskan-perbedaan-antara-const-dengan-final)
+  - [Apa fungsi dari setState()?](#apa-fungsi-dari-setstate-jelaskan-variabel-apa-saja-yang-dapat-terdampak-dengan-fungsi-tersebut)
+  - [Apa perbedaan antara const dan final](#jelaskan-perbedaan-antara-const-dengan-final)
 - [README.md Tugas 8](#tugas-8)
-  - [Implementasi CheckList Tugas 8](#implementasi-checklist-tugas-8)
-  - [Apa kegunaan `const` di Flutter?](#apa-kegunaan-const-di-flutter-jelaskan-apa-keuntungan-ketika-menggunakan-const-pada-kode-flutter-kapan-sebaiknya-kita-menggunakan-const-dan-kapan-sebaiknya-tidak-digunakan)
+  - [Apa kegunaan const di Flutter?](#apa-kegunaan-const-di-flutter-jelaskan-apa-keuntungan-ketika-menggunakan-const-pada-kode-flutter-kapan-sebaiknya-kita-menggunakan-const-dan-kapan-sebaiknya-tidak-digunakan)
   - [Jelaskan penggunaan _Column_ dan _Row_ pada Flutter.](#jelaskan-dan-bandingkan-penggunaan-column-dan-row-pada-flutter-berikan-contoh-implementasi-dari-masing-masing-layout-widget-ini)
   - [Sebutkan apa saja elemen input yang digunakan pada halaman _form_.](#sebutkan-apa-saja-elemen-input-yang-kamu-gunakan-pada-halaman-form-yang-kamu-buat-pada-tugas-kali-ini-apakah-terdapat-elemen-input-flutter-lain-yang-tidak-kamu-gunakan-pada-tugas-ini-jelaskan)
   - [Bagaimana cara kamu mengatur tema dalam aplikasi Flutter agar konsisten?](#bagaimana-cara-kamu-mengatur-tema-theme-dalam-aplikasi-flutter-agar-aplikasi-yang-dibuat-konsisten-apakah-kamu-mengimplementasikan-tema-pada-aplikasi-yang-kamu-buat)
@@ -187,14 +186,76 @@ Secara umum, perbedaannya dapat dilihat dari fleksibilitas data di dalamnya. `co
 
 ## Tugas 8
 
-## Implementasi Checklist Tugas 8
-
 ## Apa kegunaan const di Flutter? Jelaskan apa keuntungan ketika menggunakan const pada kode Flutter. Kapan sebaiknya kita menggunakan const, dan kapan sebaiknya tidak digunakan?
+
+Dalam flutter, `const` biasanya digunakan untuk mendeklarasikan objek yang nilainya statik atau tidak berubah selama aplikasi berjalan (bersifat immutable). Penggunaan `const` sendiri memiliki keuntungan pada sisi efisiensi sumber dayanya. Dengan menggunakan `const`, objek akan dibuat pada waktu _compile_ dan hanya akan disimpan sekali selama program berjalan. Dengan demikian, sumber daya yang digunakan menjadi lebih sedikit. Namun, `const` memiliki kekurangan, yaitu tidak dapat digunakan untuk widget ataupun objek yang bersifat dinamis atau nilainya berubah sesuai interaksi ketika aplikasi berjalan.
 
 ## Jelaskan dan bandingkan penggunaan Column dan Row pada Flutter. Berikan contoh implementasi dari masing-masing layout widget ini!
 
+Pada Flutter, `Column` dan `Row` merupakan layout widget yang digunakan untuk menyusun elemen secara vertikal (`Column`) dari atas ke bawah dan horizontal (`Row`) dari kiri ke kanan.
+
+- **Column**
+
+  ```flutter
+  Column(
+    children: [
+      const Padding(
+        padding: EdgeInsets.only(top: 16.0),
+        child: Text(
+          'Welcome to Marquette',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 18.0,
+          ),
+        ),
+      ),
+      GridView.count(
+        primary: true,
+        padding: const EdgeInsets.all(20),
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        crossAxisCount: 3,
+        shrinkWrap: true,
+        children: items.map((ItemHomepage item) {
+          return ItemCard(item);
+        }).toList(),
+      ),
+    ],
+  )
+  ```
+
+- **Row**
+
+  ```flutter
+  Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      InfoCard(title: 'NPM', content: npm),
+      InfoCard(title: 'Name', content: name),
+      InfoCard(title: 'Class', content: className),
+    ],
+  )
+  ```
+
 ## Sebutkan apa saja elemen input yang kamu gunakan pada halaman form yang kamu buat pada tugas kali ini. Apakah terdapat elemen input Flutter lain yang tidak kamu gunakan pada tugas ini? Jelaskan!
+
+Pada tugas individu ini, saya menggunakan beberapa elemen input, seperti `TextFormField` yang berfungsi untuk input teks, yaitu untuk nama, jumlah, dan deksripsi produk serta `ElevatedButton` sebagai tombol submit untuk menyimpan produk yang telah saya buat.
+
+Selain kedua elemen input tersebut, Flutter masih memiliki beberapa elemen input lainnya, seperti `Checkbox`, `Radio`, dan `Switch`. Elemen-elemen ini tidak saya gunakan pada tugas kali ini karna pengimplementasiannya belum terlalu diperlukan dan masih dapat di-_handle_ menggunakan kedua elemen yang saya sebutkan di awal.
 
 ## Bagaimana cara kamu mengatur tema (theme) dalam aplikasi Flutter agar aplikasi yang dibuat konsisten? Apakah kamu mengimplementasikan tema pada aplikasi yang kamu buat?
 
+Dalam Flutter, kita dapat mengatur tema dengan memanfaatkan `ThemeData` pada `MaterialApp`. Kita dapat mendefinisikan tema global untuk aplikasi yang kita miliki, seperti warna utama, font, latar belakang, dan elemen-elemen lainnya. Secara pribadi, pada tugas ini saya baru mengimplementasikan warna utama dan _secondary_ yang dapat dilihat pada potongan kode berikut:
+
+```flutter
+theme: ThemeData(
+  colorScheme: ColorScheme.fromSwatch(
+    primarySwatch: Colors.deepPurple,
+  ).copyWith(secondary: Colors.deepPurple[400]),
+  useMaterial3: true,
+)
+```
+
 ## Bagaimana cara kamu menangani navigasi dalam aplikasi dengan banyak halaman pada Flutter?
+
+Pada Flutter, navigasi dapat ditangani dengan memanfaatkan `Navigator`, seperti `Navigator.push` untuk menambahkan halaman/page baru ke stack dan `Navigator.pushReplacement` ketika kita ingin mengganti halaman saat ini dengan halaman baru, sehingga kita dapat menghindari lapisan stack yang terlalu banyak. Dengan memanfaatkan `Navigator` ini, saya dapat membuat navigasi yang lebih efisien dan fleksibel, sehingga `user` yang menggunakan aplikasi ini tidak akan kesulitan saat berpindah halaman. 

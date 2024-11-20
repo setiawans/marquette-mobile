@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:marquette/screens/menu.dart';
 import 'package:marquette/screens/productentry_form.dart';
+import 'package:marquette/screens/list_productentry.dart';
 
 class LeftDrawer extends StatelessWidget {
   const LeftDrawer({super.key});
@@ -39,7 +40,6 @@ class LeftDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.home_outlined),
             title: const Text('Halaman Utama'),
-            // Bagian redirection ke MyHomePage
             onTap: () {
               Navigator.pushReplacement(
                   context,
@@ -51,13 +51,24 @@ class LeftDrawer extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.add),
             title: const Text('Tambah Item'),
-            // Bagian redirection ke MoodEntryFormPage
             onTap: () {
               Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => ProductEntryFormPage(),
                   ));
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.shopping_cart),
+            title: const Text('Lihat Daftar Produk'),
+            onTap: () {
+              // Route menu ke halaman mood
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const ProductEntryPage()),
+              );
             },
           ),
         ],
